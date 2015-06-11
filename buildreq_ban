@@ -1,0 +1,7 @@
+# This file contains build requirements that get picked up but are
+# undesirable. One entry per line, no whitespace.
+pkgconfig(libcgmanager)
+pkgconfig(libseccomp)
+pkgconfig(lua)
+pkgconfig(python3)
+doxygen
