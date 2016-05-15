@@ -2,3 +2,5 @@
 # picked up automatically. One name per line, no whitespace.
 libcap-dev
 gnutls-dev
+doxygen
+python3-dev

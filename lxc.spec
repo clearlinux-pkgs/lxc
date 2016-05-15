@@ -4,7 +4,7 @@
 #
 Name     : lxc
 Version  : 1.1.3
-Release  : 13
+Release  : 14
 URL      : https://linuxcontainers.org/downloads/lxc/lxc-1.1.3.tar.gz
 Source0  : https://linuxcontainers.org/downloads/lxc/lxc-1.1.3.tar.gz
 Source1  : lxc.tmpfiles
@@ -12,20 +12,24 @@ Summary  : Linux Containers userspace tools
 Group    : Development/Tools
 License  : LGPL-2.1 LGPL-2.1+
 Requires: lxc-bin
+Requires: lxc-python
 Requires: lxc-config
 Requires: lxc-lib
 Requires: lxc-doc
 Requires: lxc-data
 BuildRequires : automake
 BuildRequires : automake-dev
+BuildRequires : doxygen
 BuildRequires : gettext-bin
 BuildRequires : gnutls-dev
+BuildRequires : graphviz
 BuildRequires : libcap-dev
 BuildRequires : libtool
 BuildRequires : libtool-dev
 BuildRequires : m4
 BuildRequires : pkg-config-dev
 BuildRequires : pkgconfig(libseccomp)
+BuildRequires : python3-dev
 BuildRequires : sed
 Patch1: CVE-2015-1335.patch
 
@@ -95,6 +99,14 @@ Requires: lxc-config
 lib components for the lxc package.
 
 
+%package python
+Summary: python components for the lxc package.
+Group: Default
+
+%description python
+python components for the lxc package.
+
+
 %prep
 %setup -q -n lxc-1.1.3
 %patch1 -p1
@@ -141,6 +153,7 @@ install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/tmpfiles.d/lxc.conf
 /usr/bin/lxc-monitor
 /usr/bin/lxc-snapshot
 /usr/bin/lxc-start
+/usr/bin/lxc-start-ephemeral
 /usr/bin/lxc-stop
 /usr/bin/lxc-top
 /usr/bin/lxc-unfreeze
@@ -233,3 +246,7 @@ install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/tmpfiles.d/lxc.conf
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/*.so.*
+
+%files python
+%defattr(-,root,root,-)
+/usr/lib/python*/*
