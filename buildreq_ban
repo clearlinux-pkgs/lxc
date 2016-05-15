@@ -3,4 +3,3 @@
 pkgconfig(libcgmanager)
 pkgconfig(lua)
 pkgconfig(python3)
-doxygen
