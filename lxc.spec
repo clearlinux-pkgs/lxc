@@ -4,7 +4,7 @@
 #
 Name     : lxc
 Version  : 1.1.3
-Release  : 14
+Release  : 15
 URL      : https://linuxcontainers.org/downloads/lxc/lxc-1.1.3.tar.gz
 Source0  : https://linuxcontainers.org/downloads/lxc/lxc-1.1.3.tar.gz
 Source1  : lxc.tmpfiles
