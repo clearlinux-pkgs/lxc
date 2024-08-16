@@ -9,7 +9,7 @@
 #
 Name     : lxc
 Version  : 6.0.1
-Release  : 1
+Release  : 2
 URL      : https://linuxcontainers.org/downloads/lxc/lxc-6.0.1.tar.gz
 Source0  : https://linuxcontainers.org/downloads/lxc/lxc-6.0.1.tar.gz
 Source1  : https://linuxcontainers.org/downloads/lxc/lxc-6.0.1.tar.gz.asc
@@ -144,7 +144,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1723827800
+export SOURCE_DATE_EPOCH=1723828120
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -189,6 +189,9 @@ cp %{_builddir}/lxc-%{version}/LICENSE.GPL2 %{buildroot}/usr/share/package-licen
 cp %{_builddir}/lxc-%{version}/LICENSE.LGPL2.1 %{buildroot}/usr/share/package-licenses/lxc/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 GOAMD64=v2
 DESTDIR=%{buildroot} ninja -C builddir install
+## install_append content
+mv %{buildroot}/usr/sbin/* %{buildroot}/usr/bin/
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -196,6 +199,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files bin
 %defattr(-,root,root,-)
+/usr/bin/init.lxc
 /usr/bin/lxc-attach
 /usr/bin/lxc-autostart
 /usr/bin/lxc-cgroup
@@ -221,7 +225,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/bin/lxc-update-config
 /usr/bin/lxc-usernsexec
 /usr/bin/lxc-wait
-/usr/sbin/init.lxc
 
 %files data
 %defattr(-,root,root,-)
