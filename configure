@@ -1,0 +1,6 @@
+-Dsystemd-unitdir=/usr/lib/systemd/system
+-Dinit-script=systemd
+-Ddistrosysconfdir=/etc/default
+-Dapparmor=false
+-Dselinux=false
+-Dman=false
