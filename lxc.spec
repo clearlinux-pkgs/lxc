@@ -9,7 +9,7 @@
 #
 Name     : lxc
 Version  : 6.0.1
-Release  : 2
+Release  : 3
 URL      : https://linuxcontainers.org/downloads/lxc/lxc-6.0.1.tar.gz
 Source0  : https://linuxcontainers.org/downloads/lxc/lxc-6.0.1.tar.gz
 Source1  : https://linuxcontainers.org/downloads/lxc/lxc-6.0.1.tar.gz.asc
@@ -144,7 +144,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1723828120
+export SOURCE_DATE_EPOCH=1724102039
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -191,6 +191,7 @@ GOAMD64=v2
 DESTDIR=%{buildroot} ninja -C builddir install
 ## install_append content
 mv %{buildroot}/usr/sbin/* %{buildroot}/usr/bin/
+chmod -s %{buildroot}/usr/libexec/*
 ## install_append end
 
 %files
