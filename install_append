@@ -1,2 +1,2 @@
 mv %{buildroot}/usr/sbin/* %{buildroot}/usr/bin/
-chmod -s %{buildroot}/usr/libexec/*
+chmod -s %{buildroot}/usr/libexec/lxc/lxc-user-nic
